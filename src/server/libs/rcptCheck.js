@@ -61,7 +61,7 @@ export default async (incoming) => {
         tmpCompleted = true;
         return true;
       } catch (e) {
-        debug('Got an error', e);
+        debug('Got an error', e.message);
         if (passedConnect) { return false; }
         return null;
       }
@@ -123,7 +123,7 @@ export default async (incoming) => {
       tmpCompleted = true;
       return true;
     } catch (e) {
-      debug('Got an error', e);
+      debug('Got an error', e.message);
       if (passedConnect) { return false; }
       return null;
     }
