@@ -101,7 +101,6 @@ here:
 
   state = {
     // username: null
-    queue: [],
     fetching: false,
     lastReply: null,
     email: '',
@@ -143,14 +142,14 @@ here:
         .then(res => res.json())
         .then(
           (res) => {
-            this.setState({ fetching: false, error: false, lastReply: res });
+            this.setState({ fetching: false, lastReply: res });
             // console.log('Result', res);
           }
         )
         .catch(
           (e) => {
             console.error(e);
-            this.setState({ fetching: false, error: true });
+            this.setState({ fetching: false, });
           }
         );
     });
@@ -234,14 +233,14 @@ Your request has been queued with id:
                     .then(res => res.json())
                     .then(
                       (res) => {
-                        this.setState({ fetching: false, error: false, lastReply: res });
+                        this.setState({ fetching: false, lastReply: res });
                         // console.log('Result', res);
                       }
                     )
                     .catch(
                       (e) => {
                         console.error(e);
-                        this.setState({ fetching: false, error: true });
+                        this.setState({ fetching: false });
                       }
                     );
                 });

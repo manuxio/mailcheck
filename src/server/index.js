@@ -15,10 +15,6 @@ app.use((req, res, next) => {
   req.memoryCache = memoryCache;
   next();
 });
-app.use((req, res, next) => {
-  debug('Got api request', req.originalUrl);
-  next();
-});
 app.use('/api/check', apis.check);
 app.use('/api/queue', apis.queue);
 
