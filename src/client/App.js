@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaCheck, FaExclamation } from 'react-icons/fa';
+import { FaCheck, FaExclamation, FaHourglassStart } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 // import ReactImage from './athenum.png';
@@ -218,7 +218,12 @@ here:
     return (
       <div className="alert alert-secondary" role="alert">
         <div>
-          <div><h5>Patience is a virtue</h5></div>
+          <div>
+            <h5>
+              <FaHourglassStart />
+Patience is a virtue...
+            </h5>
+          </div>
           <div>
 Your request has been queued with id:
             {' '}
