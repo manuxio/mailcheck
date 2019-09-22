@@ -6,7 +6,6 @@ import './app.css';
 
 const uppercaseFirstLetter = str => str.toLowerCase().charAt(0).toUpperCase() + str.toLowerCase().slice(1); // eslint-disable-line
 
-
 export default class App extends Component {
   static parseFinalResponse(response) {
     const {
@@ -199,7 +198,7 @@ here:
     return (
       <div className="form-group">
         <input
-          type="email"
+          type="text"
           className="form-control"
           id="emailAddress"
           aria-describedby="emailHelp"
