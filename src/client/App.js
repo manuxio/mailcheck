@@ -256,7 +256,7 @@ Your request has been queued with id:
 
   parseReply() {
     const { lastReply } = this.state;
-    console.log('Parsing last reply', lastReply);
+    // console.log('Parsing last reply', lastReply);
     const {
       queueid,
       response
