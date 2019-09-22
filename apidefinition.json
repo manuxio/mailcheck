@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "alpha",
+    "title": "Mailcheck API",
+    "description": "A sample API to check if an email address is valid",
+    "contact": {
+      "name": "manu AT cappelleri.net"
+    },
+    "license": {
+      "name": "GPL"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/check": {
+      "post": {
+        "description": "Check if email is valid",
+        "operationId": "checkMail",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkRequest",
+            "in": "body",
+            "description": "Email check request",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/EmailCheckRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "pet response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EmailCheckResult"
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "EmailCheckRequest": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["simple", "default", "extended"]
+        }
+      }
+    },
+    "EmailCheckResult": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/CheckResult"
+        },
+        {
+          "$ref": "#/definitions/CheckQueueRequest"
+        }
+      ]
+    },
+    "CheckResult": {
+      "type": "object",
+      "required": [
+        "email",
+        "valid",
+        "score"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "integer"
+        }
+      }
+    },
+    "CheckQueueRequest": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
