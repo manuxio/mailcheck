@@ -28,7 +28,7 @@ router.get('/:uniqueId', bodyParser.urlencoded({ extended: true }), (req, res, n
       queueid: uniqueId
     });
   } else {
-    debug(`Got result for queue id ${uniqueId}`, retval);
+    debug(`Got result for queue id ${uniqueId}`);
     memoryCache.del(cacheKey);
     res.json(retval);
   }
