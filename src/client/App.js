@@ -315,7 +315,7 @@ Your request has been queued with id:
               {window.location.protocol}
               {'//'}
               {window.location.host}
-              {'/check'}
+              {'/api/check'}
             </dd>
 
             <dt className="col-sm-3">Method</dt>
@@ -445,7 +445,7 @@ Your request has been queued with id:
               {window.location.protocol}
               {'//'}
               {window.location.host}
-              {'/queue/'}
+              {'/api/queue/'}
               <code>queue_id</code>
             </dd>
             <dt className="col-sm-3">Method</dt>
