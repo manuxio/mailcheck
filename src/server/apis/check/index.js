@@ -47,6 +47,7 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
           queued: true,
           queueid: uniqueId
         });
+        return process.cancel();
       }
       return v;
     })
