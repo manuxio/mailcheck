@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaCheck, FaExclamation } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 // import ReactImage from './athenum.png';
@@ -26,8 +27,11 @@ export default class App extends Component {
               valid
                 ? (
                   <h5>
-                Hurray!
+                    <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true" />
+                    <FaCheck />
                     {' '}
+                Hurray!
+                    <br />
                     {email}
                     {' '}
                 looks valid.
@@ -35,8 +39,10 @@ export default class App extends Component {
                 )
                 : (
                   <h5>
-                Sorry pal!
+                    <FaExclamation />
                     {' '}
+                Sorry m8!
+                    <br />
                     {email}
                     {' '}
                 does not look valid.
@@ -116,7 +122,7 @@ here:
       },
       {
         name: 'extended',
-        label: 'Black magic &#174;'
+        label: 'Black Magic &#174;'
       }
     ]
   };
@@ -204,7 +210,7 @@ here:
             this.setState({ email: val, lastReply: null, fetching: false });
           }}
         />
-        <small id="emailHelp" className="form-text text-muted">We&apos;ll never share your email with anyone else.</small>
+        <small id="emailHelp" className="form-text text-muted">We&apos;ll never share your email with anyone else. Yeah, sure, like you really read this.</small>
       </div>
     );
   }
