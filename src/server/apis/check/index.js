@@ -53,12 +53,21 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     .then(v => regexpChecker(v))
     .catch((e) => {
       debug('Trapped error after regexp check', e.message);
-      res.json(jsonReply({
-        email,
-        step: 0,
-        tests: ['regexp'],
-        valid: false
-      }));
+      if (mode !== 'basic') {
+        memoryCache.put(`${uniqueId}*queue`, jsonReply({
+          email,
+          step: 0,
+          tests: ['regexp'],
+          valid: false
+        }), 500 * 1000);
+      } else {
+        res.json(jsonReply({
+          email,
+          step: 0,
+          tests: ['regexp'],
+          valid: false
+        }));
+      }
       return process.cancel();
     })
     .then(v => guessPersonalData(v))
