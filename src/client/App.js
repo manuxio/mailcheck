@@ -278,7 +278,7 @@ Your request has been queued with id:
       <React.Fragment>
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 className="display-4">Mail Check</h1>
-          <p className="lead">Quickly and precisely check any email address.</p>
+          <p className="lead">quickly and precisely check any email address.</p>
         </div>
         <div className="container">
           {this.makeForm()}
@@ -446,7 +446,7 @@ curl
                 {window.location.host}
                 {'/api/check/'}
                 {' '}
--H &quot;Content-Type: application/json&quot; -X POST -d &apos;&#x7b;&quot;email":&quot;john.doe@gmail.com&quot;, &quot;mode&quot;:&quot;default&quot;&#x7d;&apos; -o response.json
+-H &quot;Content-Type: application/json&quot; -X POST -d &apos;&#x7b;&quot;email&quot;:&quot;john.doe@gmail.com&quot;, &quot;mode&quot;:&quot;default&quot;&#x7d;&apos; -o response.json
               </code>
             </dd>
           </dl>
