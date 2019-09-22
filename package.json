@@ -9,11 +9,11 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "cross-env DEBUG=mailcheck-* npm run build && npm run server",
-    "client": "DEBUG=mailcheck-* webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "server": "DEBUG=mailcheck-* nodemon --exec babel-node src/server/index.js",
+    "client": "cross-env DEBUG=mailcheck-* webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "server": "cross-env DEBUG=mailcheck-* nodemon --exec babel-node src/server/index.js",
     "dev": "cross-env DEBUG=mailcheck-* concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Sandeep Raveesh",
+  "author": "Antonino Manuele Cappelleri",
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.6.0",

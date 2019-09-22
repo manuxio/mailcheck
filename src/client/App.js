@@ -436,6 +436,19 @@ Your request has been queued with id:
                 <i>Some extra fields may be present (Black Magic &reg;)</i>
               </div>
             </dd>
+            <dt className="col-sm-3">Curl Example</dt>
+            <dd className="col-sm-9">
+              <code>
+curl
+                {' '}
+                {window.location.protocol}
+                {'//'}
+                {window.location.host}
+                {'/api/check/'}
+                {' '}
+-H &quot;Content-Type: application/json&quot; -X POST -d &apos;&#x7b;&quot;email":&quot;john.doe@gmail.com&quot;, &quot;mode&quot;:&quot;default&quot;&#x7d;&apos; -o response.json
+              </code>
+            </dd>
           </dl>
           <h5><u>Queue API</u></h5>
           <dl className="row">
@@ -532,6 +545,17 @@ you will receive an object with the following properties
             </dd>
             <dt className="col-sm-3">Lifetime</dt>
             <dd className="col-sm-9">Queued results are kept in memory for 500 seconds and deleted once consumed. You cannot access the same queue result twice!</dd>
+            <dt className="col-sm-3">Curl Example</dt>
+            <dd className="col-sm-9">
+              <code>
+curl
+                {' '}
+                {window.location.protocol}
+                {'//'}
+                {window.location.host}
+                /api/queue/askdaskas11sasa -o response.json
+              </code>
+            </dd>
           </dl>
         </div>
       </React.Fragment>
