@@ -47,13 +47,12 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
           queued: true,
           queueid: uniqueId
         });
-        return process.cancel();
       }
       return v;
     })
     .then(v => regexpChecker(v))
     .catch((e) => {
-      debug('Trapped error', e.message);
+      debug('Trapped error after regexp check', e.message);
       res.json(jsonReply({
         email,
         step: 0,
@@ -66,7 +65,7 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     // Basic Mode ends here
     .then(v => (['extended', 'default'].indexOf(mode) > -1 ? mxCheck(v) : v))
     .catch((e) => {
-      debug('Trapped error', e.message);
+      debug('Trapped error after mx check', e.message);
       memoryCache.put(`${uniqueId}*queue`, jsonReply({
         email,
         step: 0,
@@ -78,7 +77,7 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     // Default Mode ends here
     .then(v => (['extended', 'default'].indexOf(mode) > -1 ? rcptCheck(v) : v))
     .catch((e) => {
-      debug('Trapped error', e.message);
+      debug('Trapped error after rcpt check', e.message);
       const msg = e.message;
       if (msg === 'Unable to connect to any of the delegated exchange servers.') {
         memoryCache.put(`${uniqueId}*queue`, jsonReply({
