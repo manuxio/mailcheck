@@ -52,7 +52,7 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     })
     .then(v => regexpChecker(v))
     .catch((e) => {
-      debug('Trapped error', e);
+      debug('Trapped error', e.message);
       res.json(jsonReply({
         email,
         step: 0,
@@ -65,7 +65,7 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     // Basic Mode ends here
     .then(v => (['extended', 'default'].indexOf(mode) > -1 ? mxCheck(v) : v))
     .catch((e) => {
-      debug('Trapped error', e);
+      debug('Trapped error', e.message);
       memoryCache.put(`${uniqueId}*queue`, jsonReply({
         email,
         step: 0,
@@ -77,9 +77,8 @@ router.post('/', bodyParser.urlencoded({ extended: true }), bodyParser.json(), (
     // Default Mode ends here
     .then(v => (['extended', 'default'].indexOf(mode) > -1 ? rcptCheck(v) : v))
     .catch((e) => {
-      debug('Trapped error', e);
+      debug('Trapped error', e.message);
       const msg = e.message;
-      debug('MSG', msg, msg === 'Unable to connect to any of the delegated exchange servers.');
       if (msg === 'Unable to connect to any of the delegated exchange servers.') {
         memoryCache.put(`${uniqueId}*queue`, jsonReply({
           email,
