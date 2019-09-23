@@ -166,7 +166,7 @@ here:
     let textInputIsValid = 'Enter address';
     if (email && email.length > 0 && email.indexOf('@') > -1) {
       inputIsValid = '';
-      textInputIsValid = 'Verify address';
+      textInputIsValid = 'Verify';
     }
     return (
       <div className="card mb-4 box-shadow" key={mode.name}>
