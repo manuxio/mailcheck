@@ -288,7 +288,7 @@ Your request has been queued with id:
       <React.Fragment>
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 className="display-4">Mail Check</h1>
-          <p className="lead">quickly and precisely check any email address.</p>
+          <p className="lead">quickly and precisely check any email address</p>
         </div>
         <div className="container">
           {this.makeForm()}
